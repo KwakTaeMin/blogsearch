@@ -9,7 +9,6 @@ import lombok.RequiredArgsConstructor;
 import java.util.Date;
 
 @Getter
-@RequiredArgsConstructor
 public class Blog {
 
     private String title;
@@ -30,7 +29,7 @@ public class Blog {
         this.title = naverItem.getTitle();
         this.content = naverItem.getDescription();
         this.createDate = DateConverter.toDateNaverPostDate(naverItem.getPostDate());
-        this.url = naverItem.getBloggerLink();
+        this.url = naverItem.getLink();
         this.blogName = naverItem.getBloggerName();
     }
 

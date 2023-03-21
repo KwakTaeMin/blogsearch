@@ -10,4 +10,13 @@ public enum NaverSortType {
     NaverSortType(String description) {
         this.description = description;
     }
+
+    public static boolean isExist(String sort) {
+        sort = sort.toLowerCase();
+        if(SIM.name().toLowerCase().equals(sort))
+            return true;
+        if(DATE.name().toLowerCase().equals(sort))
+            return true;
+        return false;
+    }
 }

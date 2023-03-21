@@ -1,11 +1,11 @@
 package com.taemin.blogsearch.external.naver.doamin;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
 @Getter
-@RequiredArgsConstructor
 public class NaverItem {
 
     private String title;
@@ -18,5 +18,13 @@ public class NaverItem {
     @JsonProperty("postdate")
     private String postDate;
 
-
+    @Builder
+    public NaverItem(String title, String link, String description, String bloggerName, String bloggerLink, String postDate) {
+        this.title = title;
+        this.link = link;
+        this.description = description;
+        this.bloggerName = bloggerName;
+        this.bloggerLink = bloggerLink;
+        this.postDate = postDate;
+    }
 }

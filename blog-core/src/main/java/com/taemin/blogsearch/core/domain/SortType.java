@@ -4,7 +4,6 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
 @Getter
-@RequiredArgsConstructor
 public enum SortType {
     ACCURACY("accuracy", "sim"),
     RECENCY("recency", "date");

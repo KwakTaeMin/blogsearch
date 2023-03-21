@@ -9,7 +9,6 @@ import java.util.Date;
 import java.util.List;
 
 @Getter
-@RequiredArgsConstructor
 public class NaverBlog {
 
     private Date lastBuildDate;

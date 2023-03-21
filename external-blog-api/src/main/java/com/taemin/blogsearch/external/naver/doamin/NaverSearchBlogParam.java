@@ -6,7 +6,6 @@ import lombok.RequiredArgsConstructor;
 
 import java.util.Objects;
 
-@RequiredArgsConstructor
 @Getter
 public class NaverSearchBlogParam {
 
@@ -21,9 +20,9 @@ public class NaverSearchBlogParam {
     private static final int MAX_DISPLAY = 100;
 
     private static final String QUERY_ERROR_MESSAGE = "질의어는 필수 값 입니다.";
-    private static final String SORT_ERROR_MESSAGE = "종류에 존재 하지 않는 정렬 방식입니다.";
-    private static final String PAGE_ERROR_MESSAGE = "페이지 최소 값은 1, 최대값 100입니다.";
-    private static final String SIZE_ERROR_MESSAGE = "페이지 당 보여줄 수 있는 개수는 최소 1 최대 100 입니다.";
+    private static final String SORT_ERROR_MESSAGE = "정렬 방식은 필수 값 혹은 정렬 방식이 맞지 않습니다.";
+    private static final String START_ERROR_MESSAGE = "페이지 최소 값은 1, 최대값 100입니다.";
+    private static final String DISPLAY_ERROR_MESSAGE = "페이지 당 보여줄 수 있는 개수는 최소 1 최대 100 입니다.";
 
     public NaverSearchBlogParam(String query, String sort, int start, int display) {
         validate(query, sort, start, display);
@@ -36,12 +35,12 @@ public class NaverSearchBlogParam {
     private void validate(String query, String sort, int start, int display) {
         if (Objects.isNull(query) || query.isEmpty())
             throw new NaverParamException(QUERY_ERROR_MESSAGE);
-        if (Objects.isNull(NaverSortType.valueOf(sort)))
+        if (Objects.isNull(sort) || sort.isEmpty() || !NaverSortType.isExist(sort))
             throw new NaverParamException(SORT_ERROR_MESSAGE);
         if (start < MIN_START || start > MAX_START)
-            throw new NaverParamException(PAGE_ERROR_MESSAGE);
+            throw new NaverParamException(START_ERROR_MESSAGE);
         if (display < MIN_DISPLAY || display > MAX_DISPLAY)
-            throw new NaverParamException(SIZE_ERROR_MESSAGE);
+            throw new NaverParamException(DISPLAY_ERROR_MESSAGE);
     }
 
 }

@@ -1,13 +1,14 @@
 package com.taemin.blogsearch.external.kakao.domain;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 
 import java.util.Date;
 
 @Getter
-@RequiredArgsConstructor
 public class KakaoDocument {
 
     @JsonProperty("blogname")
@@ -27,4 +28,14 @@ public class KakaoDocument {
 
     @JsonProperty("url")
     private String url;
+
+    @Builder
+    public KakaoDocument(String blogName, String contents, Date datetime, String thumbnail, String title, String url) {
+        this.blogName = blogName;
+        this.contents = contents;
+        this.datetime = datetime;
+        this.thumbnail = thumbnail;
+        this.title = title;
+        this.url = url;
+    }
 }

@@ -21,6 +21,7 @@ public class Blogs {
                 .map(Blog::new)
                 .collect(Collectors.toList()));
     }
+
     public static Blogs of(NaverItems naverItems) {
         return new Blogs(naverItems.getNaverItems()
                 .stream()
