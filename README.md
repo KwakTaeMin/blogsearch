@@ -1,6 +1,6 @@
 # 프로젝트 구성
 ## 모듈
-### blog-api : API Controller
+### 1. blog-api : API Controller
   - BlogController
     - /blog/search (blog 검색)
       - parameter 
@@ -15,14 +15,14 @@
     - sort type converter 처리
     
 
-### blog-core : 비즈니스 로직, jpa, local caching, event
+### 2. blog-core : 비즈니스 로직, jpa, local caching, event
   - 블로그 검색 시 이벤트 발행하여 keyword counting / event listener 비동기 처리
   - save 하는 행위를 따로하여 문제가 생겨도 블로그 조회하는 경우엔 방해되지 않도록 처리 
   - ehcache를 이용하여 트래픽 많은 경우 10초마다 캐싱되도록 처리
   - kakao api가 에러가 발생한 경우 naver api를 사용하여 처리
   - h2 db jpa 사용하여 keyword counting
 
-### external-blog-api
+### 3. external-blog-api
   - 카카오 api blog 조회 
   - 네이버 api blog 조회
   - feign client 이용
