@@ -1,19 +1,12 @@
 # 프로젝트 구성
 ## 모듈
 ### 1. blog-api : API Controller
-  - BlogController
-    - /blog/search (blog 검색)
-      - parameter 
-        - query 질의어 (필수) 
-        - sort 정렬 방식 (accuracy, recency)
-        - page
-        - size
-      - response는 네이버와 카카오 둘다 존재하는 데이터로 생성
-    - /blog/keyword/rank (blog 검색 키워드 랭킹)
-      - 키워드 검색 순위대로 keyword 및 count 제공 
-    - error handler 처리
-    - sort type converter 처리
-    
+  - /blog/search (blog 검색)
+    - response는 네이버와 카카오 둘다 존재하는 데이터로 생성
+  - /blog/keyword/rank (blog 검색 키워드 랭킹)
+    - 키워드 검색 순위대로 keyword 및 count 제공 
+  - error handler 처리
+  - enum class parameter converter 처리
 
 ### 2. blog-core : 비즈니스 로직, jpa, local caching, event
   - 블로그 검색 시 이벤트 발행하여 keyword counting / event listener 비동기 처리
