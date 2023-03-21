@@ -1,6 +1,6 @@
 # Blog Search 프로젝트 구성
 ## 모듈
-### 1. blog-api : Controller
+### 1. blog-api : Controller, ErrorHandler
   - /blog/search (blog 검색)
     - response는 네이버와 카카오 둘다 존재하는 데이터로 생성
   - /blog/keyword/rank (blog 검색 키워드 랭킹)
