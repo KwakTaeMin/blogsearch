@@ -28,7 +28,7 @@ public class KakaoFeignClientTest {
 
     @Test
     public void 카카오_블로그_조회_테스트_정확도_순() {
-        KakaoSearchBlogParam kakaoSearchBlogParam = new KakaoSearchBlogParam("애플", KakaoSortType.ACCURACY.name(), 10, 1);
+        KakaoSearchBlogParam kakaoSearchBlogParam = new KakaoSearchBlogParam("애플", KakaoSortType.ACCURACY.name(), 1, 10);
         KakaoBlog kakaoBlog = kakaoFeignClient.searchBlog(kakaoSearchBlogParam);
         List<KakaoDocument> kakaoDocumentList = kakaoBlog.getDocuments().getKakaoDocuments();
         assertThat(kakaoBlog).isNotNull();
@@ -50,7 +50,7 @@ public class KakaoFeignClientTest {
 
     @Test
     public void 카카오_블로그_조회_테스트_최근_순() {
-        KakaoSearchBlogParam kakaoSearchBlogParam = new KakaoSearchBlogParam("애플", KakaoSortType.RECENCY.name(), 10, 1);
+        KakaoSearchBlogParam kakaoSearchBlogParam = new KakaoSearchBlogParam("애플", KakaoSortType.RECENCY.name(), 1, 10);
         KakaoBlog kakaoBlog = kakaoFeignClient.searchBlog(kakaoSearchBlogParam);
         List<KakaoDocument> kakaoDocumentList = kakaoBlog.getDocuments().getKakaoDocuments();
         assertThat(kakaoBlog).isNotNull();
