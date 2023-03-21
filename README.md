@@ -1,4 +1,4 @@
-# 프로젝트 구성
+# Blog Search 프로젝트 구성
 ## 모듈
 ### 1. blog-api : API Controller
   - /blog/search (blog 검색)
