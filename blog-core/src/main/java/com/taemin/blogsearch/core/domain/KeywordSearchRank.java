@@ -12,10 +12,14 @@ public class KeywordSearchRank {
         this.keywordSearchRank = keywordSearchCounts.stream()
                 .sorted()
                 .limit(MAX_RANK)
-                .collect(Collectors.toList());;
+                .collect(Collectors.toList());
     }
 
     public List<KeywordSearchCount> getKeywordSearchRank() {
         return Collections.unmodifiableList(this.keywordSearchRank);
+    }
+
+    public int size() {
+        return this.keywordSearchRank.size();
     }
 }

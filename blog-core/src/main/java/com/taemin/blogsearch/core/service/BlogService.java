@@ -40,7 +40,7 @@ public class BlogService {
     private PageableBlogs getKakaoBlogData(BlogQuery blogQuery) {
         KakaoBlog kakaoBlog = kakaoFeignClient.searchBlog(blogQuery.toKakaoSearchParam());
         Blogs blogs = Blogs.of(kakaoBlog.getDocuments());
-        Page page = Page.of(kakaoBlog.getMeta(), blogQuery);
+        Page page = Page.of(kakaoBlog.getMeta().getTotalCount(), blogQuery);
         return new PageableBlogs(page, blogs);
     }
 

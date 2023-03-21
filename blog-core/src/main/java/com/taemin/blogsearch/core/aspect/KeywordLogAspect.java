@@ -24,7 +24,7 @@ public class KeywordLogAspect {
         Optional<Object> optionalBlogQuery = Arrays.stream(joinPoint.getArgs()).findFirst();
         optionalBlogQuery.ifPresent(objectBlogQuery -> {
             BlogQuery blogQuery = (BlogQuery) objectBlogQuery;
-            applicationEventPublisher.publishEvent(new BlogQueryEvent(blogQuery, blogQuery.getQuery()));
+            applicationEventPublisher.publishEvent(new BlogQueryEvent(this, blogQuery.getQuery()));
         });
     }
 }

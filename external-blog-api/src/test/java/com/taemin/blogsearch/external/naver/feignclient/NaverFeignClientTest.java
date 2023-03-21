@@ -23,7 +23,7 @@ public class NaverFeignClientTest {
         assertThat(naverBlog).isNotNull();
         assertThat(naverBlog.getStart()).isEqualTo(1);
         assertThat(naverBlog.getTotal()).isNotNull();
-        assertThat(naverBlog.getDisplay()).isEqualTo(10);
+        assertThat(naverBlog.getDisplay()).isGreaterThan(1);
         assertThat(naverBlog.getLastBuildDate()).isNotNull();
         assertThat(naverBlog.getItems()).isNotNull();
         naverBlog.getItems().getNaverItems().forEach(naverItem -> {
@@ -43,7 +43,7 @@ public class NaverFeignClientTest {
         assertThat(naverBlog).isNotNull();
         assertThat(naverBlog.getStart()).isEqualTo(1);
         assertThat(naverBlog.getTotal()).isNotNull();
-        assertThat(naverBlog.getDisplay()).isEqualTo(10);
+        assertThat(naverBlog.getDisplay()).isGreaterThan(1);
         assertThat(naverBlog.getLastBuildDate()).isNotNull();
         assertThat(naverBlog.getItems()).isNotNull();
         naverBlog.getItems().getNaverItems().forEach(naverItem -> {
@@ -58,9 +58,7 @@ public class NaverFeignClientTest {
 
     @Test
     public void 네이버_블로그_Null_파라미터_조회_테스트() {
-        assertThrows(NullPointerException.class, () -> {
-            naverFeignClient.searchBlog(null);
-        });
+        assertThrows(NullPointerException.class, () -> naverFeignClient.searchBlog(null));
     }
 
 

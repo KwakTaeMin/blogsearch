@@ -27,13 +27,7 @@ public class BlogSearchController {
                                                     @RequestParam(required = false, defaultValue = DEFAULT_SORT_TYPE_VALUE) SortType sort,
                                                     @RequestParam(required = false, defaultValue = DEFAULT_PAGE_VALUE) int page,
                                                     @RequestParam(required = false, defaultValue = DEFAULT_SIZE_VALUE) int size) {
-        BlogQuery blogQuery = BlogQuery.builder()
-                .query(query)
-                .sort(sort)
-                .page(page)
-                .size(size)
-                .build();
-
+        BlogQuery blogQuery = new BlogQuery(query, sort, page, size);
         return ResponseEntity.ok(blogService.getSearchBlog(blogQuery));
     }
 

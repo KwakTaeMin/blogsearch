@@ -2,7 +2,6 @@ package com.taemin.blogsearch.external.kakao.domain;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
-import lombok.RequiredArgsConstructor;
 
 @Getter
 public class KakaoMeta {
@@ -15,4 +14,10 @@ public class KakaoMeta {
 
     @JsonProperty("total_count")
     private int totalCount;
+
+    public KakaoMeta(boolean isEnd, int pageableCount, int totalCount) {
+        this.isEnd = isEnd;
+        this.pageableCount = pageableCount;
+        this.totalCount = totalCount;
+    }
 }

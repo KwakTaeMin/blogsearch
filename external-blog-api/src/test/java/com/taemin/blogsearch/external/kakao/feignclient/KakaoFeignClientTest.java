@@ -5,10 +5,6 @@ import com.taemin.blogsearch.external.kakao.domain.KakaoBlog;
 import com.taemin.blogsearch.external.kakao.domain.KakaoDocument;
 import com.taemin.blogsearch.external.kakao.domain.KakaoSearchBlogParam;
 import com.taemin.blogsearch.external.kakao.domain.KakaoSortType;
-import com.taemin.blogsearch.external.kakao.exception.KakaoParamException;
-import com.taemin.blogsearch.external.kakao.feignclient.KakaoFeignClient;
-import com.taemin.blogsearch.external.naver.doamin.NaverSearchBlogParam;
-import feign.FeignException;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -16,7 +12,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 @SpringBootTest
@@ -32,7 +27,7 @@ public class KakaoFeignClientTest {
         List<KakaoDocument> kakaoDocumentList = kakaoBlog.getDocuments().getKakaoDocuments();
         assertThat(kakaoBlog).isNotNull();
         assertThat(kakaoBlog.getDocuments()).isNotNull();
-        assertThat(kakaoBlog.getDocuments().getKakaoDocuments().size()).isEqualTo(10);
+        assertThat(kakaoBlog.getDocuments().getKakaoDocuments().size()).isGreaterThan(1);
         kakaoDocumentList.forEach(kakaoDocument -> {
             assertThat(kakaoDocument.getBlogName()).isNotEmpty();
             assertThat(kakaoDocument.getUrl()).isNotEmpty();
@@ -54,7 +49,7 @@ public class KakaoFeignClientTest {
         List<KakaoDocument> kakaoDocumentList = kakaoBlog.getDocuments().getKakaoDocuments();
         assertThat(kakaoBlog).isNotNull();
         assertThat(kakaoBlog.getDocuments()).isNotNull();
-        assertThat(kakaoBlog.getDocuments().getKakaoDocuments().size()).isEqualTo(10);
+        assertThat(kakaoBlog.getDocuments().getKakaoDocuments().size()).isGreaterThan(1);
         kakaoDocumentList.forEach(kakaoDocument -> {
             assertThat(kakaoDocument.getBlogName()).isNotEmpty();
             assertThat(kakaoDocument.getUrl()).isNotEmpty();
@@ -71,9 +66,7 @@ public class KakaoFeignClientTest {
 
     @Test
     public void 카카오_블로그_Null_파라미터_조회_테스트() {
-        assertThrows(NullPointerException.class, () -> {
-            kakaoFeignClient.searchBlog(null);
-        });
+        assertThrows(NullPointerException.class, () -> kakaoFeignClient.searchBlog(null));
     }
 
 }

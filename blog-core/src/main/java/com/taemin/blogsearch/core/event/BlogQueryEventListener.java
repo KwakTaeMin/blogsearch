@@ -19,7 +19,7 @@ public class BlogQueryEventListener {
 
     @Async
     @EventListener
-    public void cache(BlogQueryEvent blogQueryEvent) {
+    public void receivedBlogQueryEvent(BlogQueryEvent blogQueryEvent) {
         Optional<KeywordSearchCount> optionalKeywordCount = keywordSearchCountRepository.findById(blogQueryEvent.getQuery());
         optionalKeywordCount.ifPresentOrElse(keywordSearchCount -> {
             KeywordSearchCount updateKeywordSearch = optionalKeywordCount.get();

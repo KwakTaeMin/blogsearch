@@ -1,15 +1,14 @@
 package com.taemin.blogsearch.core.domain;
 
 import lombok.Getter;
-import lombok.RequiredArgsConstructor;
 
 @Getter
 public enum SortType {
     ACCURACY("accuracy", "sim"),
     RECENCY("recency", "date");
 
-    private String kakaoType;
-    private String naverType;
+    private final String kakaoType;
+    private final String naverType;
 
     SortType(String kakaoType, String naverType) {
         this.kakaoType = kakaoType;
@@ -20,5 +19,13 @@ public enum SortType {
         if(sortType.equals(RECENCY.kakaoType))
             return SortType.RECENCY;
         return SortType.ACCURACY;
+    }
+
+    public static boolean isExist(SortType sortType) {
+        if(ACCURACY.equals(sortType))
+            return true;
+        if(RECENCY.equals(sortType))
+            return true;
+        return false;
     }
 }
