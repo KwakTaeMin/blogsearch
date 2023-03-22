@@ -36,3 +36,4 @@
 
 ## Executable jar
 - blog-api gradle 설정하여 gradle bootJar Task로 생성
+- [Executable jar](https://github.com/KwakTaeMin/blogsearch/raw/master/blog-api/build/libs/blog-api-0.0.1-SNAPSHOT.jar) 
