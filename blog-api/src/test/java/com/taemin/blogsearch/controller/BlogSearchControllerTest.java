@@ -56,6 +56,7 @@ public class BlogSearchControllerTest {
                 .andExpect(jsonPath("page.currentPage", searchBlogResponse.getPage().getCurrentPage()).exists())
                 .andExpect(jsonPath("page.displayPerPage", searchBlogResponse.getPage().getDisplayPerPage()).exists())
                 .andExpect(jsonPath("page.totalCount", searchBlogResponse.getPage().getTotalCount()).exists())
+                .andExpect(jsonPath("page.totalPage", searchBlogResponse.getPage().getTotalPage()).exists())
                 .andExpect(jsonPath("blogs", searchBlogResponse.getBlogs()).exists())
                 .andExpect(jsonPath("blogs[0].title", searchBlogResponse.getBlogs().get(0).getTitle()).exists())
                 .andExpect(jsonPath("blogs[0].blogName", searchBlogResponse.getBlogs().get(0).getBlogName()).exists())

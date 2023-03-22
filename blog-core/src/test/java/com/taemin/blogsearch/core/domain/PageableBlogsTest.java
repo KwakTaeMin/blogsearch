@@ -15,7 +15,7 @@ public class PageableBlogsTest {
 
     @Test
     public void PageableBlogs_생성_테스트() {
-        Page page = new Page(1, 10, 10000);
+        Page page = new Page(1, 10, 514);
         KakaoDocument kakaoDocument = KakaoDocument.builder()
                 .blogName("name")
                 .contents("contents")
@@ -41,6 +41,7 @@ public class PageableBlogsTest {
         assertThat(pageableBlogs).isNotNull();
         assertThat(pageableBlogs.getBlogs().size()).isEqualTo(2);
         assertThat(pageableBlogs.getPage()).isNotNull();
+        assertThat(pageableBlogs.getPage().getTotalPage()).isEqualTo(52);
 
     }
 }

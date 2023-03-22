@@ -10,10 +10,11 @@ public class PageTest {
 
     @Test
     public void Page_생성_테스트() {
-        Page page = new Page(1, 10, 10000);
+        Page page = new Page(1, 10, 9999);
         assertThat(page.getCurrentPage()).isEqualTo(1);
         assertThat(page.getDisplayPerPage()).isEqualTo(10);
-        assertThat(page.getTotalCount()).isEqualTo(10000);
+        assertThat(page.getTotalCount()).isEqualTo(9999);
+        assertThat(page.getTotalPage()).isEqualTo(1000);
     }
 
     @Test
@@ -23,6 +24,7 @@ public class PageTest {
         assertThat(page.getCurrentPage()).isEqualTo(1);
         assertThat(page.getDisplayPerPage()).isEqualTo(10);
         assertThat(page.getTotalCount()).isEqualTo(100);
+        assertThat(page.getTotalPage()).isEqualTo(10);
     }
 
 }
